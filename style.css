@@ -113,7 +113,7 @@ body {
     transform: scale(1);
 }
 
-/* Section Layout (reduced spacing) */
+/* Section Layout */
 .section {
     padding: 50px 20px;
     display: flex;
@@ -124,11 +124,13 @@ body {
 }
 
 /* Backgrounds */
-.intro { background: rgba(255, 214, 232, 0.25); }
-.message { background: rgba(255, 214, 232, 0.25); }
-.photo { background: rgba(255, 214, 232, 0.25); }
-.letter { background: rgba(255, 214, 232, 0.25); }
-.ending { background: rgba(255, 214, 232, 0.25); }
+.intro,
+.message,
+.photo,
+.letter,
+.ending {
+    background: rgba(255, 214, 232, 0.25);
+}
 
 /* Polaroid Row */
 .polaroid-row {
@@ -183,6 +185,24 @@ p {
     font-size: 2rem;
     line-height: 1.6;
     max-width: 700px;
+    padding: 0 20px;
+}
+
+/* Responsive Cursive Formatting */
+@media (max-width: 600px) {
+    .cursive {
+        font-size: 1.6rem;
+        line-height: 1.5;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .cursive {
+        font-size: 1.4rem;
+        line-height: 1.45;
+        padding: 0 10px;
+    }
 }
 
 /* Signature */
@@ -253,7 +273,7 @@ p {
     50% { transform: scale(1.03); }
 }
 
-/* Floating Hearts (NOW BEHIND CONTENT) */
+/* Floating Hearts (Behind Content) */
 .hearts {
     position: fixed;
     top: 0;
@@ -262,7 +282,7 @@ p {
     height: 100%;
     pointer-events: none;
     overflow: hidden;
-    z-index: -1; /* moved behind everything */
+    z-index: -1;
 }
 
 .heart {
@@ -284,4 +304,35 @@ p {
         transform: translateY(-10vh) scale(1.4);
         opacity: 0;
     }
+}
+
+/* Custom CSS Heart (Mobile-safe) */
+.soft-heart {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    background-color: #ff6b81;
+    transform: rotate(45deg);
+    margin: 0 4px;
+    position: relative;
+}
+
+.soft-heart::before,
+.soft-heart::after {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background-color: #ff6b81;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.soft-heart::before {
+    top: -7px;
+    left: 0;
+}
+
+.soft-heart::after {
+    left: -7px;
+    top: 0;
 }
